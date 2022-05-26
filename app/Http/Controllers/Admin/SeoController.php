@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseAdminController;
 use App\Http\Requests\StoreSeoRequest;
 use App\Http\Requests\UpdateSeoRequest;
 use App\Models\Seo;
 
-class SeoController extends Controller
+class SeoController extends BaseAdminController
 {
     public function index()
     {

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Service;
+use App\Http\Controllers\BaseAdminController;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use App\Models\Service;
 
-class ServiceController extends Controller
+class ServiceController extends BaseAdminController
 {
     public function index()
     {

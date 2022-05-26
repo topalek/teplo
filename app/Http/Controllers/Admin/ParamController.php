@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseAdminController;
 use App\Http\Requests\StoreParamRequest;
 use App\Http\Requests\UpdateParamRequest;
 use App\Models\Param;
 
-class ParamController extends Controller
+class ParamController extends BaseAdminController
 {
     public function index()
     {
-        //
     }
 
     public function create()
