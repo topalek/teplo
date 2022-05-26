@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Seo;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSeoRequest;
 use App\Http\Requests\UpdateSeoRequest;
+use App\Models\Seo;
 
 class SeoController extends Controller
 {

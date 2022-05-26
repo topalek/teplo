@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Action;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreActionRequest;
 use App\Http\Requests\UpdateActionRequest;
+use App\Models\Action;
 
 class ActionController extends Controller
 {

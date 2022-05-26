@@ -106,7 +106,7 @@
 <script src="{{asset("js/adminlte.min.js")}}"></script>
 
 <!-- ChartJS -->
-<script src="{{asset("js/chart.js/Chart.min.js")}}"></script>
+<script src="{{asset("js/chart/Chart.min.js")}}"></script>
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset("js/admin.js")}}"></script>

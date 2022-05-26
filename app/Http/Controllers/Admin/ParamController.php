@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreParamRequest;
 use App\Http\Requests\UpdateParamRequest;
 use App\Models\Param;
