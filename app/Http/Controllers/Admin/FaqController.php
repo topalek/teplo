@@ -7,7 +7,7 @@ use App\Http\Requests\StoreFaqRequest;
 use App\Http\Requests\UpdateFaqRequest;
 use App\Models\Faq;
 
-class FaqController extends BaseAdminController
+class FaqController extends BaseAdminController implements AdminMenuInterface
 {
     public function index()
     {
@@ -42,5 +42,19 @@ class FaqController extends BaseAdminController
     public function destroy(Faq $faq)
     {
         //
+    }
+
+    public static function getMenuItem(): array
+    {
+        return [
+            'icon'  => 'edit',
+            'title' => 'FAQ',
+            'url'   => route('admin.faq.index'),
+        ];
+    }
+
+    public static function getMenuPosition(): int
+    {
+        return 10;
     }
 }

@@ -7,7 +7,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 
-class ProductController extends BaseAdminController
+class ProductController extends BaseAdminController implements AdminMenuInterface
 {
     public function index()
     {
@@ -42,5 +42,19 @@ class ProductController extends BaseAdminController
     public function destroy(Product $product)
     {
         //
+    }
+
+    public static function getMenuItem(): array
+    {
+        return [
+            'icon'  => 'shopping-basket',
+            'title' => 'Товары',
+            'url'   => route('admin.product.index'),
+        ];
+    }
+
+    public static function getMenuPosition(): int
+    {
+        return 1;
     }
 }

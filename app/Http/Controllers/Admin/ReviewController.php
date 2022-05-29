@@ -7,7 +7,7 @@ use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
 use App\Models\Review;
 
-class ReviewController extends BaseAdminController
+class ReviewController extends BaseAdminController implements AdminMenuInterface
 {
     public function index()
     {
@@ -42,5 +42,19 @@ class ReviewController extends BaseAdminController
     public function destroy(Review $review)
     {
         //
+    }
+
+    public static function getMenuItem(): array
+    {
+        return [
+            'icon'  => 'comments-o',
+            'title' => 'Отзывы',
+            'url'   => route('admin.review.index'),
+        ];
+    }
+
+    public static function getMenuPosition(): int
+    {
+        return 6;
     }
 }

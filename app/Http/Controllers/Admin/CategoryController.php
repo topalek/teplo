@@ -7,17 +7,17 @@ use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 
-class CategoryController extends BaseAdminController
+class CategoryController extends BaseAdminController implements AdminMenuInterface
 {
 
     public function index()
     {
-        //
+        return view('admin.category.index');
     }
 
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     public function store(StoreCategoryRequest $request)
@@ -43,5 +43,19 @@ class CategoryController extends BaseAdminController
     public function destroy(Category $category)
     {
         //
+    }
+
+    public static function getMenuItem(): array
+    {
+        return [
+            'icon'  => 'calendar',
+            'title' => 'Категори',
+            'url'   => route('admin.category.index'),
+        ];
+    }
+
+    public static function getMenuPosition(): int
+    {
+        return 1;
     }
 }

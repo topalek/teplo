@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+.card .card-tools {
+    position: relative;
+}
+
+.card.collapsed-card .card-header .card-tools:after {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+
+}
+
+.card-header:is([data-card-widget="collapse"]) .card-tools:after {
+    content: '\2212';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+}

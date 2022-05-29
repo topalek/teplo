@@ -7,7 +7,7 @@ use App\Http\Requests\StoreSeoRequest;
 use App\Http\Requests\UpdateSeoRequest;
 use App\Models\Seo;
 
-class SeoController extends BaseAdminController
+class SeoController extends BaseAdminController implements AdminMenuInterface
 {
     public function index()
     {
@@ -42,5 +42,19 @@ class SeoController extends BaseAdminController
     public function destroy(Seo $seo)
     {
         //
+    }
+
+    public static function getMenuItem(): array
+    {
+        return [
+            'icon'  => 'globe',
+            'title' => 'Seo',
+            'url'   => route('admin.seo.index'),
+        ];
+    }
+
+    public static function getMenuPosition(): int
+    {
+        return 5;
     }
 }

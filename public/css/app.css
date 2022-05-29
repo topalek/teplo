@@ -1,1 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+
+.collapsed-card:after {
+    content: '+';
+}
+
+.card:has([data-card-widget="collapse"]):after {
+    content: '-';
+}

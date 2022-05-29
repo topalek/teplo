@@ -7,7 +7,7 @@ use App\Http\Requests\StoreActionRequest;
 use App\Http\Requests\UpdateActionRequest;
 use App\Models\Action;
 
-class ActionController extends BaseAdminController
+class ActionController extends BaseAdminController implements AdminMenuInterface
 {
 
     public function index()
@@ -43,5 +43,20 @@ class ActionController extends BaseAdminController
     public function destroy(Action $action)
     {
         //
+    }
+
+    public static function getMenuItem(): array
+    {
+        return [
+            'icon'  => 'percent',
+            'title' => 'Акции',
+            'url'   => route('admin.action.index'),
+        ];
+    }
+
+
+    public static function getMenuPosition(): int
+    {
+        return 2;
     }
 }

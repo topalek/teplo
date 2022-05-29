@@ -7,7 +7,7 @@ use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Service;
 
-class ServiceController extends BaseAdminController
+class ServiceController extends BaseAdminController implements AdminMenuInterface
 {
     public function index()
     {
@@ -42,5 +42,19 @@ class ServiceController extends BaseAdminController
     public function destroy(Service $service)
     {
         //
+    }
+
+    public static function getMenuItem(): array
+    {
+        return [
+            'icon'  => 'handshake-o',
+            'title' => 'Услуги',
+            'url'   => route('admin.service.index'),
+        ];
+    }
+
+    public static function getMenuPosition(): int
+    {
+        return 5;
     }
 }

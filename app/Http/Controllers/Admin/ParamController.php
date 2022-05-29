@@ -7,7 +7,7 @@ use App\Http\Requests\StoreParamRequest;
 use App\Http\Requests\UpdateParamRequest;
 use App\Models\Param;
 
-class ParamController extends BaseAdminController
+class ParamController extends BaseAdminController implements AdminMenuInterface
 {
     public function index()
     {
@@ -41,5 +41,19 @@ class ParamController extends BaseAdminController
     public function destroy(Param $param)
     {
         //
+    }
+
+    public static function getMenuItem(): array
+    {
+        return [
+            'icon'  => 'sliders',
+            'title' => 'Параметры',
+            'url'   => route('admin.param.index'),
+        ];
+    }
+
+    public static function getMenuPosition(): int
+    {
+        return 6;
     }
 }

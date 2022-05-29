@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ActionController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ParamController;
 use App\Http\Controllers\Admin\ProductController;
@@ -27,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('category', CategoryController::class);
     Route::resource('page', PageController::class);
     Route::resource('product', ProductController::class);
@@ -37,6 +38,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('faq', FaqController::class);
     Route::resource('service', ServiceController::class);
     Route::resource('action', ActionController::class);
+    Route::resource('order', OrderController::class);
 });
 
 Auth::routes();
