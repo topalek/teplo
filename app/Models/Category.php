@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     public function attributeLabels(): array
     {
@@ -31,6 +32,5 @@ class Category extends Model
             'updated_at'  => __('Update at'),
         ];
     }
-
 
 }
