@@ -17,12 +17,12 @@ class CategoryController extends BaseAdminController implements AdminMenuInterfa
 
     public function create()
     {
-        return view('admin.category.create');
+        $list = [];
+        return view('admin.category.create', compact('list'));
     }
 
     public function store(StoreCategoryRequest $request)
     {
-        //
     }
 
     public function show(Category $category)

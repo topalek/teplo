@@ -6,7 +6,14 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">DataTable with minimal features &amp; hover style</h3>
+            <div class="row">
+                <div class="col-10">
+                    <h3 class="card-title">Категории</h3>
+                </div>
+                <div class="col-2">
+                    <a href="{{route('admin.category.create')}}" class="btn btn-success">Создать новую</a>
+                </div>
+            </div>
         </div>
 
         <div class="card-body">

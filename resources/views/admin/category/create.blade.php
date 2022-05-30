@@ -3,15 +3,11 @@
 @section('seo')
 @endsection
 
-@section('title')
-    Создать категорию
-@endsection
-
 @section('content')
     <div class="col-10">
         <div class="card card-info">
             <div class="card-header">
-                <h3 class="card-title">Input Addon</h3>
+                <h1 class="card-title">Создать категорию</h1>
             </div>
             <div class="card-body">
                 <form action="{{route('admin.category.store')}}" method="post">
@@ -33,12 +29,9 @@
                                 <label for="parent_id">Родительская категория</label>
                                 <select name="parent_id" class="form-control">
                                     <option value="">- Select value-</option>
-                                    <option value="1">Category 1</option>
-                                    <option value="2">Category 2</option>
-                                    <option value="3">Category 3</option>
-                                    <option value="4">Category 4</option>
-                                    <option value="5">Category 5</option>
-
+                                    @foreach($list as $id=>$title)
+                                        <option value="{{$id}}">{{$title}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
