@@ -9,6 +9,7 @@
 
     @yield('seo')
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="{{asset("favicon.svg")}}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
