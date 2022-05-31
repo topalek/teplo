@@ -7,19 +7,18 @@
     <div class="col-10">
         <div class="card card-info">
             <div class="card-header">
-                <h1 class="card-title">Редактировать категорию: {{$category->title}}</h1>
+                <h1 class="card-title">Создать категорию</h1>
             </div>
             <div class="card-body">
-                <form action="{{route('admin.category.update')}}" method="post">
+                <form action="{{route('admin.category.store')}}" method="post">
                     @csrf
-                    @method('put')
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="title">Название</label>
                                 <input type="text" class="form-control @error('title')is-invalid @enderror "
                                        name="title"
-                                       value="{{old('title',$order->title)}}" placeholder="Название...">
+                                       value="{{old('title')}}" placeholder="Enter email">
                                 @error('title')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -27,35 +26,21 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="title">Slug</label>
-                                <input type="text" class="form-control @error('slug')is-invalid @enderror "
-                                       name="slug"
-                                       value="{{old('slug',$order->slug)}}" placeholder="Название...">
-                                @error('slug')
-                                <span class="error invalid-feedback">{{$message}}</span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
                                 <label for="parent_id">Родительская категория</label>
                                 <select name="parent_id" class="form-control">
                                     <option value="">- Select value-</option>
                                     @foreach($list as $id=>$title)
-                                        <option
-                                            @checked($id == $category->parent_id) value="{{$id}}">{{$title}}</option>
+                                        <option value="{{$id}}">{{$title}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6">
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
                             <div class="form-group">
-                                <label for="description">Описание</label>
-                                <textarea class="form-control" name="description">
-                                    {{old('description',$category->description)}}
-                                </textarea>
+                                <label for="title">Описание</label>
+                                <textarea class="form-control" name="title"></textarea>
                             </div>
                         </div>
                     </div>

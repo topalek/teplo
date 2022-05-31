@@ -11,37 +11,42 @@ class ServiceController extends BaseAdminController implements AdminMenuInterfac
 {
     public function index()
     {
-        //
+        return view('admin.service.index');
     }
 
     public function create()
     {
-        //
+        $list = [];
+        return view('admin.service.create', compact('list'));
     }
 
     public function store(StoreServiceRequest $request)
     {
-        //
+        $service = Service::create($request->validated());
+        return redirect()->route('admin.service.show', $service)->with('success', 'Категория сохранена');
     }
 
     public function show(Service $service)
     {
-        //
+        return view('admin.service.show', compact('service'));
     }
 
     public function edit(Service $service)
     {
-        //
+        return view('admin.service.edit', compact('service'));
     }
 
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        //
+        $service->update($request->validated());
+
+        return redirect()->route('admin.service.show', compact('service'))->with('success', 'Категория обновлена');
     }
 
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->route('admin.service.index')->with('success', 'Категория удалена');
     }
 
     public static function getMenuItem(): array

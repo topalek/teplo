@@ -10,10 +10,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-9">
-                            <h3 class="card-title">Категории</h3>
+                            <h3 class="card-title">Товары</h3>
                         </div>
                         <div class="col-3">
-                            <a href="{{route('admin.category.create')}}" class="btn btn-success">Создать новую</a>
+                            <a href="{{route('admin.product.create')}}" class="btn btn-success">Создать новый</a>
                         </div>
                     </div>
                 </div>
@@ -22,33 +22,33 @@
                     <div class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
                             <div class="col-sm-12">
-                                @if(!empty($categories))
+                                @if(!empty($products))
                                     <table class="table table-bordered table-hover dataTable dtr-inline"
                                            aria-describedby="example2_info">
                                         <thead>
                                         <tr>
-                                            <th class="sorting sorting_asc">ID</th>
-                                            <th class="sorting sorting_asc">Название</th>
-                                            <th class="sorting sorting_asc">Родительская</th>
-                                            <th class="sorting sorting_asc">Описание</th>
+                                            <th>ID</th>
+                                            <th>Название</th>
+                                            <th>Категория</th>
+                                            <th>Описание</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($categories as $category)
+                                        @foreach($products as $product)
                                             <tr class="{{$loop->even?'even':'odd'}}">
-                                                <td>{{$category->id}}</td>
-                                                <td>{{$category->title}}</td>
-                                                <td>{{$category->parent_name}}</td>
-                                                <td>{{$category->title}}</td>
+                                                <td>{{$product->id}}</td>
+                                                <td>{{$product->title}}</td>
+                                                <td>{{$product->category->title}}</td>
+                                                <td>{{$product->title}}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
                                     </table>
-                                    {{$categories->links()}}
+                                    {{$products->links()}}
                                 @else
                                     <p>Пока ничего нет </p>
-                                    <p><a href="{{route('admin.category.create')}}" class="btn btn-success">Создать
-                                            новую</a></p>
+                                    <p><a href="{{route('admin.product.create')}}" class="btn btn-success">Создать
+                                            новый</a></p>
                                 @endif
                             </div>
                         </div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class StoreParamRequest
+use Illuminate\Foundation\Http\FormRequest;
+
+class StoreParamRequest extends FormRequest
 {
     public function authorize()
     {

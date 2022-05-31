@@ -33,4 +33,13 @@ class Category extends Model
         ];
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function getParentTitleAttribute(): string
+    {
+        return $this->parent->title ?: 'Родительская';
+    }
 }

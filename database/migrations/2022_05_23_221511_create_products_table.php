@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->foreignId('category_id');
             $table->integer('price');
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }
