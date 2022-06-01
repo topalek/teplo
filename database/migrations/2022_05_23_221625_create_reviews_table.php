@@ -15,7 +15,16 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->text('content');
+            $table->integer('rating')->unsigned()->nullable();
             $table->timestamps();
+        });
+
+        Schema::create('review_model', function (Blueprint $table) {
+            $table->foreignId('review_id');
+            $table->foreignId('model_id');
+            $table->primary(['model_id', 'review_id']);
         });
     }
 
@@ -26,6 +35,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('review_model');
         Schema::dropIfExists('reviews');
     }
 };

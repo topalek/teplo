@@ -30,6 +30,7 @@ return new class extends Migration
         Schema::create('seo_model', function (Blueprint $table) {
             $table->foreignId('seo_id');
             $table->foreignId('model_id');
+            $table->primary(['model_id', 'seo_id']);
         });
     }
 

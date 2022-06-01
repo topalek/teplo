@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -23,6 +22,12 @@ return new class extends Migration
             $table->boolean('published')->default(false);
             $table->timestamps();
         });
+
+        Schema::create('product_option', function (Blueprint $table) {
+            $table->foreignId('product_id');
+            $table->foreignId('option_id');
+            $table->primary(['option_id', 'product_id']);
+        });
     }
 
     /**
@@ -32,6 +37,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('product_option');
         Schema::dropIfExists('products');
     }
 };
