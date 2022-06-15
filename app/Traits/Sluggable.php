@@ -10,7 +10,13 @@ trait Sluggable
     {
         static::saving(function ($model) {
             $settings = $model::sluggable();
-            $model->slug = Str::slug($model->$settings['source'], language: 'ru');
+            $field = $settings['source'];
+            if (!$model->exists()){
+                $model->slug = Str::slug($model->$field, language: 'ru');
+            }
+            if ($model->isDirty('slug')){
+                $model->slug = Str::slug($model->slug, language: 'ru');
+            }
         });
     }
 
