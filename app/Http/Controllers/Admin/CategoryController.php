@@ -24,7 +24,8 @@ class CategoryController extends BaseAdminController implements AdminMenuInterfa
 
     public function store(StoreCategoryRequest $request)
     {
-        $category = Category::create($request->validated());
+        $category = Category::make($request->validated());
+        $category->save();
         return redirect()->route('admin.category.show', $category)->with('success', 'Категория сохранена');
     }
 
