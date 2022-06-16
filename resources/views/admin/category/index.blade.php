@@ -27,10 +27,11 @@
                                            aria-describedby="example2_info">
                                         <thead>
                                         <tr>
-                                            <th class="sorting sorting_asc">ID</th>
-                                            <th class="sorting sorting_asc">Название</th>
-                                            <th class="sorting sorting_asc">Родительская</th>
-                                            <th class="sorting sorting_asc">Описание</th>
+                                            <th>ID</th>
+                                            <th>Название</th>
+                                            <th>Родительская</th>
+                                            <th>Описание</th>
+                                            <th>Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -38,8 +39,14 @@
                                             <tr class="{{$loop->even?'even':'odd'}}">
                                                 <td>{{$category->id}}</td>
                                                 <td>{{$category->title}}</td>
-                                                <td>{{$category->parent_name}}</td>
-                                                <td>{{$category->title}}</td>
+                                                <td>{{$category->parent_title}}</td>
+                                                <td>{{$category->description}}</td>
+                                                <td>
+                                                    <a href="{{route('admin.category.edit',$category)}}"
+                                                       class="btn btn-success">Edit</a>
+                                                    <a href="{{route('admin.category.destroy',$category)}}"
+                                                       class="btn btn-danger">Delete</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>

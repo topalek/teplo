@@ -12,13 +12,13 @@ class CategoryController extends BaseAdminController implements AdminMenuInterfa
 
     public function index()
     {
-        return view('admin.category.index');
+        $categories = Category::paginate();
+        return view('admin.category.index', compact('categories'));
     }
 
     public function create()
     {
-        $list = Category::pluck(['title', 'id'])->all();
-
+        $list = Category::pluck('title', 'id')->all();
         return view('admin.category.create', compact('list'));
     }
 
@@ -36,7 +36,7 @@ class CategoryController extends BaseAdminController implements AdminMenuInterfa
 
     public function edit(Category $category)
     {
-        $list = Category::pluck(['title', 'id'])->all();
+        $list = Category::pluck('title', 'id')->all();
         return view('admin.category.edit', compact('category', 'list'));
     }
 

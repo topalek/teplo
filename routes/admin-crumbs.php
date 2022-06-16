@@ -18,5 +18,10 @@ Breadcrumbs::for('admin.category.create', function (Trail $trail) {
     $trail->push('Создать категорию', route('admin.category.create'));
 });
 
+Breadcrumbs::for('admin.category.show', function (Trail $trail) {
+    $trail->parent('admin.category.index');
+    $trail->push('Категорию', route('admin.category.show'));
+});
+
 
 

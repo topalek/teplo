@@ -38,7 +38,7 @@
                                     </tr>
                                     <tr>
                                         <th>Родительская</th>
-                                        <td>{{$category->parent_name}}</td>
+                                        <td>{{$category->parent_title}}</td>
                                     </tr>
                                     <tr>
                                         <th>Описание</th>
@@ -55,8 +55,7 @@
                                     </tbody>
                                 </table>
                                 <p>
-                                    <a href="{{route('admin.category.create')}}" class="btn btn-success">Создать
-                                        новую</a>
+                                    <a href="{{route('admin.category.edit',$category)}}" class="btn btn-success">Редактировать</a>
                                 </p>
                             </div>
                         </div>

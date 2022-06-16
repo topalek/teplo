@@ -12,13 +12,14 @@
             <div class="card-body">
                 <form action="{{route('admin.category.store')}}" method="post">
                     @csrf
+                    <!--                    --><?php //dd(request())?>
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="title">Название</label>
                                 <input type="text" class="form-control @error('title')is-invalid @enderror "
                                        name="title"
-                                       value="{{old('title')}}" placeholder="Enter email">
+                                       value="{{old('title')}}" placeholder="Введите название категории">
                                 @error('title')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -40,7 +41,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="title">Описание</label>
-                                <textarea class="form-control" name="title"></textarea>
+                                <textarea class="form-control" name="description"></textarea>
                             </div>
                         </div>
                     </div>

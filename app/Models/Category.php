@@ -20,6 +20,8 @@ class Category extends Model
 {
     use HasFactory, Sluggable;
 
+    protected $fillable = ['title', 'slug', 'description', 'parent_id'];
+
     public function attributeLabels(): array
     {
         return [
@@ -38,8 +40,18 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id', 'id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'id', 'parent_id');
+    }
+
     public function getParentTitleAttribute(): string
     {
-        return $this->parent->title ?: 'Родительская';
+        return $this->parent ? $this->parent->title : 'Родительская';
     }
 }
