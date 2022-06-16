@@ -45,7 +45,7 @@
                                     <option value="">- Select value-</option>
                                     @foreach($list as $id=>$title)
                                         <option
-                                            @checked($id == $category->parent_id) value="{{$id}}">{{$title}}</option>
+                                            @selected($id == $category->parent_id) value="{{$id}}">{{$title}}</option>
                                     @endforeach
                                 </select>
                                 @error('parent_id')
@@ -56,9 +56,8 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="description">Описание</label>
-                                <textarea class="form-control" name="description">
-                                    {{old('description',$category->description)}}
-                                </textarea>
+                                <textarea class="form-control"
+                                          name="description">{{old('description',$category->description)}}</textarea>
                             </div>
                         </div>
                     </div>
